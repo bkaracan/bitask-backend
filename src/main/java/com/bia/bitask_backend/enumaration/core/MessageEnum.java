@@ -1,10 +1,8 @@
-package com.bia.bitask_backend.enumaration;
+package com.bia.bitask_backend.enumaration.core;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 public enum MessageEnum {
 
     NOT_FOUND(1,"The record is not found!"),
@@ -19,6 +17,9 @@ public enum MessageEnum {
 
     private final Integer code;
     private final String message;
+
+    MessageEnum(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 }
-
-
