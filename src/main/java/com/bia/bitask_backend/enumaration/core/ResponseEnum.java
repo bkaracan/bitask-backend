@@ -1,10 +1,8 @@
-package com.bia.bitask_backend.enumaration;
+package com.bia.bitask_backend.enumaration.core;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 public enum ResponseEnum {
 
     OK(200,"OK", Boolean.TRUE),
@@ -20,4 +18,10 @@ public enum ResponseEnum {
     private final Integer httpStatusCode;
     private final String description;
     private final Boolean isSuccess;
+
+    ResponseEnum(Integer httpStatusCode, String description, Boolean isSuccess) {
+        this.httpStatusCode = httpStatusCode;
+        this.description = description;
+        this.isSuccess = isSuccess;
+    }
 }
