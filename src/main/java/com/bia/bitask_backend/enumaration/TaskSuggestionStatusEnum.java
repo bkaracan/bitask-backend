@@ -2,8 +2,10 @@ package com.bia.bitask_backend.enumaration;
 
 import java.util.Arrays;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public enum TaskSuggestionStatusEnum {
   PENDING(1L, "Pending"),
   APPROVED(2L, "Approved"),
@@ -25,10 +27,5 @@ public enum TaskSuggestionStatusEnum {
         .filter(taskSuggestionStatusEnum -> taskSuggestionStatusEnum.name.equals(name))
         .findFirst()
         .orElse(null);
-  }
-
-  TaskSuggestionStatusEnum(Long code, String name) {
-    this.code = code;
-    this.name = name;
   }
 }

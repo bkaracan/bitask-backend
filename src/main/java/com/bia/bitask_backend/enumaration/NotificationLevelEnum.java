@@ -2,8 +2,10 @@ package com.bia.bitask_backend.enumaration;
 
 import java.util.Arrays;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public enum NotificationLevelEnum {
   INFO(1L, "Info"),
   WARNING(2L, "Warning"),
@@ -24,10 +26,5 @@ public enum NotificationLevelEnum {
         .filter(notificationLevelEnum -> notificationLevelEnum.name.equals(name))
         .findFirst()
         .orElse(null);
-  }
-
-  NotificationLevelEnum(Long code, String name) {
-    this.code = code;
-    this.name = name;
   }
 }

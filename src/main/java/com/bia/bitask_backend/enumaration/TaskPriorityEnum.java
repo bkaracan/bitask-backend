@@ -2,8 +2,10 @@ package com.bia.bitask_backend.enumaration;
 
 import java.util.Arrays;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public enum TaskPriorityEnum {
   LOW(1L, "Low"),
   MEDIUM(2L, "Medium"),
@@ -24,10 +26,5 @@ public enum TaskPriorityEnum {
         .filter(taskPriorityEnum -> taskPriorityEnum.name.equals(name))
         .findFirst()
         .orElse(null);
-  }
-
-  TaskPriorityEnum(Long code, String name) {
-    this.code = code;
-    this.name = name;
   }
 }

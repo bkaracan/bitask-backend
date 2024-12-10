@@ -2,8 +2,10 @@ package com.bia.bitask_backend.enumaration;
 
 import java.util.Arrays;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public enum TaskStatusEnum {
   OPEN(1L, "Open"),
   IN_PROGRESS(2L, "In-progress"),
@@ -27,10 +29,5 @@ public enum TaskStatusEnum {
         .filter(taskStatusEnum -> taskStatusEnum.name.equals(name))
         .findFirst()
         .orElse(null);
-  }
-
-  TaskStatusEnum(Long code, String name) {
-    this.code = code;
-    this.name = name;
   }
 }

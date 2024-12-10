@@ -2,8 +2,10 @@ package com.bia.bitask_backend.enumaration;
 
 import java.util.Arrays;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public enum NotificationStatusEnum {
   NEW(1L, "New"),
   OPENED(2L, "Opened");
@@ -23,10 +25,5 @@ public enum NotificationStatusEnum {
         .filter(notificationStatusEnum -> notificationStatusEnum.name.equals(name))
         .findFirst()
         .orElse(null);
-  }
-
-  NotificationStatusEnum(Long code, String name) {
-    this.code = code;
-    this.name = name;
   }
 }

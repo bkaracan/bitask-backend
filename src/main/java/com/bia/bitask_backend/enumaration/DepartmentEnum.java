@@ -2,8 +2,10 @@ package com.bia.bitask_backend.enumaration;
 
 import java.util.Arrays;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public enum DepartmentEnum {
   BUSINESS_ANALYSIS(1L, "Business Analysis"),
   SYSTEM_ARCHITECTURE(2L, "System Architecture"),
@@ -27,10 +29,5 @@ public enum DepartmentEnum {
         .filter(departmentEnum -> departmentEnum.name.equals(name))
         .findFirst()
         .orElse(null);
-  }
-
-  DepartmentEnum(Long code, String name) {
-    this.code = code;
-    this.name = name;
   }
 }
