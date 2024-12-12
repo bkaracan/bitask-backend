@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "user_detail")
@@ -35,4 +36,30 @@ public class User extends BaseEntity implements Serializable {
 
   @Column(name = "pp_url")
   private String profilePictureUrl;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name="department_id", nullable=false)
+  private Department department;
+
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+  private List<TaskAssignee> taskAssignees;
+
+  @OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY)
+  private List<Comment> comments;
+
+  @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
+  private List<Notification> notifications;
+
+  @OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY)
+  private List<TaskSuggestion> createdSuggestions;
+
+  @OneToMany(mappedBy = "assignedTo", fetch = FetchType.LAZY)
+  private List<TaskSuggestion> assignedSuggestions;
+
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+  private List<TaskAssignmentHistory> taskAssignmentHistories;
+
+  @OneToOne(mappedBy = "user")
+  private WishList wishList;
+
 }

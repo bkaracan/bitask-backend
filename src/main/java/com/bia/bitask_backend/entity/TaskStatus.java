@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.*;
 
 @Entity
@@ -28,4 +30,8 @@ public class TaskStatus implements Serializable {
 
   @Column(unique = true, nullable = false, length = 50)
   private String name;
+
+  @OneToMany(mappedBy = "status", fetch = FetchType.LAZY)
+  private List<Task> tasks;
+
 }

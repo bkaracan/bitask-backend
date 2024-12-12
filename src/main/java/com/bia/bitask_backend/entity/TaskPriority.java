@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "task_priority")
@@ -28,4 +29,7 @@ public class TaskPriority implements Serializable {
 
   @Column(unique = true, nullable = false, length = 20)
   private String name;
+
+  @OneToMany(mappedBy = "priority", fetch = FetchType.LAZY)
+  private List<Task> tasks;
 }

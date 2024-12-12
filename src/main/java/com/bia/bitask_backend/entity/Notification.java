@@ -32,4 +32,20 @@ public class Notification extends BaseEntity implements Serializable {
     @Column(nullable = false)
     private String message;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "receiver_id", nullable = false)
+    private User receiver;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="task_id")
+    private Task task;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "level_id", nullable = false)
+    private NotificationLevel level;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "status_id", nullable = false)
+    private NotificationStatus status;
+
 }

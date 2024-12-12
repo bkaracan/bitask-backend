@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "board")
@@ -30,4 +31,7 @@ public class Board extends BaseEntity implements Serializable {
 
     @Column(unique = true, nullable = false, length = 50)
     private String name;
+
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
+    private List<Task> tasks;
 }

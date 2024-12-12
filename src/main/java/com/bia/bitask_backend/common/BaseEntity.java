@@ -1,10 +1,15 @@
 package com.bia.bitask_backend.common;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,7 +19,14 @@ import lombok.Setter;
 public class BaseEntity {
 
     private String createdBy;
-    private String createdAt;
-    private String lastModifiedBy;
-    private String lastModifiedAt;
+
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "TIMESTAMP")
+    private LocalDateTime createdAt;
+
+    private String updatedBy;
+
+    @LastModifiedDate
+    @Column(name = "updated_at", columnDefinition = "TIMESTAMP")
+    private LocalDateTime updatedAt;
 }

@@ -27,6 +27,11 @@ public class Comment extends BaseEntity implements Serializable {
   private Long id;
 
   @Lob
-  @Column(nullable = false)
+  @Column(columnDefinition = "TEXT", nullable = false)
   private String content;
+
+  @ManyToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name = "task_id", nullable=false)
+  private Task task;
+
 }

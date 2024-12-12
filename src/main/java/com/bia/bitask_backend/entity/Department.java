@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "department")
@@ -28,4 +29,8 @@ public class Department implements Serializable {
 
   @Column(unique = true, nullable = false, length = 100)
   private String name;
+
+  @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+  private List<User> users;
+
 }

@@ -31,6 +31,15 @@ public class TaskSuggestion extends BaseEntity implements Serializable {
   private String title;
 
   @Lob
-  @Column(nullable = false, length = 280)
+  @Column(columnDefinition = "TEXT", nullable = false)
   private String description;
+
+  @ManyToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name="status_id", nullable=false)
+  private TaskSuggestionStatus status;
+
+  @ManyToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name="assigned_to")
+  private User assignedTo;
+
 }

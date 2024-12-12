@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "notification_level")
@@ -28,4 +29,7 @@ public class NotificationLevel implements Serializable {
 
   @Column(unique = true, nullable = false, length = 50)
   private String name;
+
+  @OneToMany(mappedBy = "level", fetch = FetchType.LAZY)
+  private List<Notification> notifications;
 }

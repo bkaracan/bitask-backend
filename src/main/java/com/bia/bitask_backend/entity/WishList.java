@@ -30,6 +30,11 @@ public class WishList implements Serializable {
   private String title;
 
   @Lob
-  @Column(nullable = false, length = 500)
+  @Column(columnDefinition = "TEXT", nullable = false)
   private String content;
+
+  @OneToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name="user_id", unique=true, nullable=false)
+  private User user;
+
 }
