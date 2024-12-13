@@ -9,7 +9,7 @@ public class AbstractResponsePayload {
     // Default constructor
   }
 
-  public ResponsePayload<?> setResponse() {
+  public ResponsePayload<Void> setResponse() {
     return getDefaultSuccessResponse();
   }
 
@@ -21,87 +21,94 @@ public class AbstractResponsePayload {
     return setResponseData(responseEnum, data);
   }
 
-  public ResponsePayload<?> setResponse(ResponseEnum responseEnum, String message) {
+  public ResponsePayload<Void> setResponse(ResponseEnum responseEnum, String message) {
     return setResponseData(responseEnum, message);
   }
 
-  public ResponsePayload<?> setResponse(ResponseEnum responseEnum, MessageEnum message) {
+  public ResponsePayload<Void> setResponse(ResponseEnum responseEnum, MessageEnum message) {
     return setResponseData(responseEnum, message.getMessage());
   }
 
   public <T> ResponsePayload<T> setResponse(
-      ResponseEnum responseEnum, MessageEnum message, T data) {
+          ResponseEnum responseEnum, MessageEnum message, T data) {
     return setResponseData(responseEnum, message.getMessage(), data);
   }
 
-  private ResponsePayload<?> setResponseData(ResponseEnum responseEnum, String message) {
+  private ResponsePayload<Void> setResponseData(ResponseEnum responseEnum, String message) {
     return new ResponsePayload<>(
-        responseEnum.getHttpStatusCode(),
-        responseEnum.getDescription(),
-        responseEnum.getIsSuccess(),
-        message,
-        null);
+            responseEnum.getHttpStatusCode(),
+            responseEnum.getDescription(),
+            responseEnum.getIsSuccess(),
+            message,
+            null
+    );
   }
 
   private <T> ResponsePayload<T> setResponseData(ResponseEnum responseEnum, T data) {
     return new ResponsePayload<>(
-        responseEnum.getHttpStatusCode(),
-        responseEnum.getDescription(),
-        responseEnum.getIsSuccess(),
-        null,
-        data);
+            responseEnum.getHttpStatusCode(),
+            responseEnum.getDescription(),
+            responseEnum.getIsSuccess(),
+            null,
+            data
+    );
   }
 
   private <T> ResponsePayload<T> setResponseData(
-      ResponseEnum responseEnum, String message, T data) {
+          ResponseEnum responseEnum, String message, T data) {
     return new ResponsePayload<>(
-        responseEnum.getHttpStatusCode(),
-        responseEnum.getDescription(),
-        responseEnum.getIsSuccess(),
-        message,
-        data);
+            responseEnum.getHttpStatusCode(),
+            responseEnum.getDescription(),
+            responseEnum.getIsSuccess(),
+            message,
+            data
+    );
   }
 
-  private ResponsePayload<?> getDefaultSuccessResponse() {
+  private ResponsePayload<Void> getDefaultSuccessResponse() {
     return new ResponsePayload<>(
-        ResponseEnum.OK.getHttpStatusCode(),
-        ResponseEnum.OK.getDescription(),
-        ResponseEnum.OK.getIsSuccess(),
-        null,
-        null);
+            ResponseEnum.OK.getHttpStatusCode(),
+            ResponseEnum.OK.getDescription(),
+            ResponseEnum.OK.getIsSuccess(),
+            null,
+            null
+    );
   }
 
   // Removed unused parameter and implemented meaningful logic for showNotification
   public <T> ResponsePayload<T> setResponse(
-      ResponseEnum responseEnum, String message, T data, Boolean showNotification) {
+          ResponseEnum responseEnum, String message, T data, Boolean showNotification) {
     return new ResponsePayload<>(
-        responseEnum.getHttpStatusCode(),
-        responseEnum.getDescription(),
-        responseEnum.getIsSuccess(),
-        message,
-        data,
-        showNotification);
+            responseEnum.getHttpStatusCode(),
+            responseEnum.getDescription(),
+            responseEnum.getIsSuccess(),
+            message,
+            data,
+            showNotification
+    );
   }
 
-  public ResponsePayload<?> setResponse(
-      ResponseEnum responseEnum, MessageEnum message, Boolean showNotification) {
+  public ResponsePayload<Void> setResponse(
+          ResponseEnum responseEnum, MessageEnum message, Boolean showNotification) {
     return new ResponsePayload<>(
-        responseEnum.getHttpStatusCode(),
-        responseEnum.getDescription(),
-        responseEnum.getIsSuccess(),
-        message.getMessage(),
-        null,
-        showNotification);
+            responseEnum.getHttpStatusCode(),
+            responseEnum.getDescription(),
+            responseEnum.getIsSuccess(),
+            message.getMessage(),
+            null,
+            showNotification
+    );
   }
 
-  public ResponsePayload<?> setResponse(
-      ResponseEnum responseEnum, String message, Boolean showNotification) {
+  public ResponsePayload<Void> setResponse(
+          ResponseEnum responseEnum, String message, Boolean showNotification) {
     return new ResponsePayload<>(
-        responseEnum.getHttpStatusCode(),
-        responseEnum.getDescription(),
-        responseEnum.getIsSuccess(),
-        message,
-        null,
-        showNotification);
+            responseEnum.getHttpStatusCode(),
+            responseEnum.getDescription(),
+            responseEnum.getIsSuccess(),
+            message,
+            null,
+            showNotification
+    );
   }
 }

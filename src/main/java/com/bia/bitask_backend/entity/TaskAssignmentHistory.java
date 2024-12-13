@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TaskAssignmentHistory implements Serializable {
+public class  TaskAssignmentHistory implements Serializable {
 
   @Serial private static final long serialVersionUID = 1L;
 
