@@ -1,22 +1,32 @@
 package com.bia.bitask_backend.enumaration.core;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
-@Getter
-@RequiredArgsConstructor
 public enum MessageEnum {
-
-    NOT_FOUND(1,"The record is not found!"),
-    NOT_AUTHORIZED(2,"You are not authorized for this process!"),
-    UNEXPECTED_ERROR(3,"Unexpected error!"),
-    SAVE_SUCCESS(4,"The record has been saved successfully!"),
-    FETCH_SUCCESS(5,"The record has been fetched successfully!"),
-    UPDATE_SUCCESS(6,"The record has been updated successfully!"),
-    DELETE_SUCCESS(7,"The record has been deleted successfully!"),
-    RECORD_EXISTS(8,"The record already exists!"),
-    EMPTY_LIST(9,"The list is empty!");
-
+    NOT_FOUND(1, "The record is not found!"),
+    NOT_AUTHORIZED(2, "You are not authorized for this process!"),
+    UNEXPECTED_ERROR(3, "Unexpected error!"),
+    SAVE_SUCCESS(4, "The record has been saved successfully!"),
+    FETCH_SUCCESS(5, "The record has been fetched successfully!"),
+    UPDATE_SUCCESS(6, "The record has been updated successfully!"),
+    DELETE_SUCCESS(7, "The record has been deleted successfully!"),
+    RECORD_EXISTS(8, "The record already exists!"),
+    EMPTY_LIST(9, "The list is empty!"),
+    AUTHOR_ALREADY_EXISTS(10, "The author already exists!"),
+    AUTHOR_NOT_FOUND(11, "The author does not exist!"),
+    BOOK_ALREADY_EXISTS(12, "The book already exists!" ),;
     private final Integer code;
     private final String message;
+
+    MessageEnum(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

@@ -47,7 +47,7 @@ public class User extends BaseEntity implements Serializable {
   @OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY)
   private List<Comment> comments;
 
-  @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
   private List<Notification> notifications;
 
   @OneToMany(mappedBy = "createdBy", fetch = FetchType.LAZY)

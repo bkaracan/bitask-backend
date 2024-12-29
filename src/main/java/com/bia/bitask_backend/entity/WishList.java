@@ -1,5 +1,6 @@
 package com.bia.bitask_backend.entity;
 
+import com.bia.bitask_backend.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +14,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class WishList implements Serializable {
+public class WishList extends BaseEntity implements Serializable {
 
   @Serial private static final long serialVersionUID = 1L;
 
