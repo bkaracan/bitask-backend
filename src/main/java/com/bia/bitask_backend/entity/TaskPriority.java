@@ -1,5 +1,6 @@
 package com.bia.bitask_backend.entity;
 
+import com.bia.bitask_backend.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,7 +15,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TaskPriority implements Serializable {
+@NamedQueries({
+        @NamedQuery(
+                name = "TaskPriority.namedQueryFindByName",
+                query =
+                        "SELECT tp from TaskPriority tp\n"
+                                + "WHERE tp.name LIKE lower(:taskPriorityName)\n"
+                                + "ORDER BY tp.name ASC")
+})
+public class TaskPriority extends BaseEntity implements Serializable {
 
   @Serial private static final long serialVersionUID = 1L;
 
