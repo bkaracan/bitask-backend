@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TaskPriorityRepository extends JpaRepository<TaskPriority, Long> {
@@ -25,4 +26,10 @@ ORDER BY tp.name ASC
       value = "select * from task_priority where name like lower(:taskPriorityName) order by name asc",
       nativeQuery = true)
   List<TaskPriority> findAllByNameWithNativeQuery(@Param("taskPriorityName") String taskPriorityName);
+
+  @Query(name = "TaskPriority.namedQueryFindByName")
+  List<TaskPriority> namedQueryFindByName(@Param("taskPriorityName") String taskPriorityName);
+
+
+    Optional<TaskPriority> findByName(String name);
 }
