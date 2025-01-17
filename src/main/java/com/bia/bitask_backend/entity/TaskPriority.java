@@ -15,14 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@NamedQueries({
-        @NamedQuery(
-                name = "TaskPriority.namedQueryFindByName",
-                query =
-                        "SELECT tp from TaskPriority tp\n"
-                                + "WHERE tp.name LIKE lower(:taskPriorityName)\n"
-                                + "ORDER BY tp.name ASC")
-})
 public class TaskPriority extends BaseEntity implements Serializable {
 
   @Serial private static final long serialVersionUID = 1L;
